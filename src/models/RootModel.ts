@@ -19,6 +19,51 @@ export const RootModel = types
 
 export const mobxStore = observable({
   name: "mobx",
+  chosenPlot: "firstPlot",
+  firstPlot: {
+    data: [
+      {
+        x: [1, 2, 3, 4],
+        y: [1, 3, 2, 6],
+        type: "bar",
+        marker: { color: "#ab63fa" },
+        name: "Bar",
+      },
+      {
+        x: [1, 2, 3, 4],
+        y: [3, 2, 7, 4],
+        type: "line",
+        marker: { color: "#19d3f3" },
+        name: "Line",
+      },
+    ],
+    layout: {
+      plotBackground: "#f3f6fa",
+      margin: { t: 0, r: 0, l: 20, b: 30 },
+    },
+  },
+  secondPlot: {
+    data: [
+      {
+        x: [2, 4, 6, 8],
+        y: [2, 5, 7, 10],
+        type: "bar",
+        marker: { color: "#ab63fa" },
+        name: "Bar",
+      },
+      {
+        x: [1, 2, 3, 4],
+        y: [3, 2, 7, 4],
+        type: "line",
+        marker: { color: "#19d3f3" },
+        name: "Line",
+      },
+    ],
+    layout: {
+      plotBackground: "#f3f6fa",
+      margin: { t: 0, r: 0, l: 20, b: 30 },
+    },
+  },
 });
 
 export type MobxStoreInstance = typeof mobxStore;
@@ -33,7 +78,6 @@ export function useMst() {
     throw new Error("Store cannot be null, please add a context provider");
   }
   return store as RootInstance;
-
 }
 export function useMobx() {
   const store = useContext(MobxStoreContext);
