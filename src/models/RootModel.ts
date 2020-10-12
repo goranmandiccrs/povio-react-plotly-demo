@@ -19,6 +19,55 @@ export const RootModel = types
 
 export const mobxStore = observable({
   name: "mobx",
+  selectedOption: {
+    title: {
+      text: "First chart",
+    },
+    series: [
+      {
+        type: "line",
+        data: [1, 2, 3],
+      },
+    ],
+    tooltip: {
+      borderColor: "red",
+      className: "customClassName",
+    },
+  },
+  dropdownOptions: [
+    { value: "firstOption", label: "First plot" },
+    { value: "secondOption", label: "Second plot" },
+  ],
+  "firstOption": {
+    title: {
+      text: "First chart",
+    },
+    series: [
+      {
+        type: "line",
+        data: [1, 2, 3],
+      },
+    ],
+    tooltip: {
+      borderColor: "red",
+      className: "customClassName",
+    },
+  },
+  "secondOption": {
+    title: {
+      text: "Second chart",
+    },
+    series: [
+      {
+        type: "line",
+        data: [3, 43, 10],
+      },
+    ],
+    tooltip: {
+      borderColor: "green",
+      className: "customClassName2",
+    },
+  },
 });
 
 export type MobxStoreInstance = typeof mobxStore;
@@ -33,7 +82,6 @@ export function useMst() {
     throw new Error("Store cannot be null, please add a context provider");
   }
   return store as RootInstance;
-
 }
 export function useMobx() {
   const store = useContext(MobxStoreContext);

@@ -1,10 +1,16 @@
 import React from "react";
+import "mobx-react-lite/batchingForReactDom";
 import ReactDOM from "react-dom";
 import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { toJS } from "mobx";
-import { Provider, MobxProvider, rootInstance, mobxStore } from "./models/RootModel";
+import {
+  Provider,
+  MobxProvider,
+  rootInstance,
+  mobxStore,
+} from "./models/RootModel";
 import { applySnapshot, getSnapshot } from "mobx-state-tree";
 
 window["toJS"] = toJS;
