@@ -1,84 +1,63 @@
-import Plotly from "plotly.js";
 import React, { FC } from "react";
 import { observer } from "mobx-react";
-import fetch from "isomorphic-fetch";
-import ReactJSONEditor from "../components/ReactJSONEditor.react.js";
-import Select from "react-select";
-import SplitPane from "react-split-pane";
-
-import createPlotlyComponent from "react-plotly.js/factory";
-
-import "../App.css";
-import "../styles/Resizer.css";
-
-/* JSON Editor styling */
-import "../styles/autocomplete.css";
-import "../styles/contextmenu.css";
-import "../styles/jsoneditor.css";
-import "../styles/menu.css";
-import "../styles/reset.css";
-import "../styles/searchbox.css";
-
-import "react-select/dist/react-select.css";
-import { getPlotActions } from "../actions/plot.actions";
+import Plot from "react-plotly.js";
 import { useMobx } from "../models/RootModel";
+import Select from "react-select";
+import { action } from "mobx";
+
+const options = [
+  { value: "firstObject", label: "First data object" },
+  { value: "secondObject", label: "Second data object" },
+];
 
 interface IHomePageInterface {}
-
-const Plot = createPlotlyComponent(Plotly);
 
 export const Home: FC<IHomePageInterface> = observer(
   (props: IHomePageInterface) => {
     const state = useMobx();
-    const { getMocks } = getPlotActions(state);
-
+    const onChange = action((option) => {
+      state.chosenObject = option.value;
+    });
+    const onHover = action((args) => {
+      state.tooltipX = args.event.clientX;
+      state.tooltipY = args.event.clientY;
+      state.tooltipVisible = true;
+      state.hoverData = { xvals: args.xvals, yvals: args.yvals };
+    });
+    const onUnhover = action(() => {
+      state.tooltipVisible = false;
+    });
     return (
-      <div className="App">
-        <SplitPane split="vertical" minSize={100} defaultSize={400}>
-          <div>
-            <div className="controls-panel">
-              <Select.Async
-                name="plotlyjs-mocks"
-                loadOptions={getMocks}
-                placeholder={"Search plotly.js mocks"}
-                onChange={handleNewPlot}
-                className={"no-select"}
-              />
-            </div>
-            <ReactJSONEditor
-              json={state.json}
-              onChange={handleJsonChange}
-              plotUrl={state.plotUrl}
-            />
+      <>
+        <h4> Select a data source: </h4>
+        <Select
+          options={options}
+          onChange={onChange}
+          defaultValue={options[0]}
+        />
+        <Plot
+          onHover={onHover}
+          onUnhover={onUnhover}
+          data={state[state.chosenObject]}
+          layout={{ width: 320, height: 240, title: "A Fancy Plot" }}
+        />
+        {state.tooltipVisible && (
+          <div
+            style={{
+              position: "absolute",
+              top: state.tooltipY,
+              left: state.tooltipX + 30,
+              minWidth: 100,
+              minHeight: 100,
+              backgroundColor: "white",
+              border: "1px dashed blue",
+            }}
+          >
+            {state.hoverData.xvals}
+            {state.hoverData.yvals}
           </div>
-          <div>
-            <div className="controls-panel">
-              <Select.Async
-                name="plot-search-bar"
-                loadOptions={getPlots}
-                placeholder={searchPlaceholder}
-                onChange={handleNewPlot}
-                ref="plotSearchBar"
-                cache={false}
-                className={"no-select"}
-              />
-              <br />
-              <input
-                placeholder={plotInputPlaceholder}
-                onBlur={handleNewPlot}
-                style={{ padding: "10px", width: "95%", border: 0 }}
-                value={state.plotUrl}
-                className={"no-select"}
-              />
-            </div>
-            <Plot
-              data={state.json.data}
-              layout={state.json.layout}
-              config={{ displayModeBar: false }}
-            />
-          </div>
-        </SplitPane>
-      </div>
+        )}
+      </>
     );
   }
 );

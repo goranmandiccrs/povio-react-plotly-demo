@@ -19,52 +19,38 @@ export const RootModel = types
 
 export const mobxStore = observable({
   name: "mobx",
-  chosenPlot: "firstPlot",
-  firstPlot: {
-    data: [
-      {
-        x: [1, 2, 3, 4],
-        y: [1, 3, 2, 6],
-        type: "bar",
-        marker: { color: "#ab63fa" },
-        name: "Bar",
-      },
-      {
-        x: [1, 2, 3, 4],
-        y: [3, 2, 7, 4],
-        type: "line",
-        marker: { color: "#19d3f3" },
-        name: "Line",
-      },
-    ],
-    layout: {
-      plotBackground: "#f3f6fa",
-      margin: { t: 0, r: 0, l: 20, b: 30 },
-    },
+  chosenObject: "firstObject",
+  tooltipX: 0,
+  tooltipY: 0,
+  tooltipVisible: false,
+  hoverData: {
+    xvals: 0,
+    yvals: 0,
   },
-  secondPlot: {
-    data: [
-      {
-        x: [2, 4, 6, 8],
-        y: [2, 5, 7, 10],
-        type: "bar",
-        marker: { color: "#ab63fa" },
-        name: "Bar",
-      },
-      {
-        x: [1, 2, 3, 4],
-        y: [3, 2, 7, 4],
-        type: "line",
-        marker: { color: "#19d3f3" },
-        name: "Line",
-      },
-    ],
-    layout: {
-      plotBackground: "#f3f6fa",
-      margin: { t: 0, r: 0, l: 20, b: 30 },
+  firstObject: [
+    {
+      x: [1, 2, 3],
+      y: [2, 5, 3],
+      type: "scatter",
+      mode: "lines+markers",
+      marker: { color: "red" },
     },
-  },
+    { type: "bar", x: [1, 2, 3], y: [2, 5, 3] },
+  ],
+  secondObject: [
+    {
+      x: [3, 5, 6],
+      y: [2, 6, 3],
+      type: "scatter",
+      mode: "lines+markers",
+      marker: { color: "red" },
+    },
+    { type: "bar", x: [3, 5, 6], y: [2, 5, 3] },
+  ],
 });
+if (process.env.NODE_ENV === "development") {
+  window["state"] = mobxStore;
+}
 
 export type MobxStoreInstance = typeof mobxStore;
 export type RootInstance = Instance<typeof RootModel>;

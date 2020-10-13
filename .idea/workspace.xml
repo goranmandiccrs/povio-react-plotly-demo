@@ -20,21 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="b8b81fa8-fe32-418f-b776-6c7f3583fb4d" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/Project.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/codeStyles/codeStyleConfig.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/plotly-demo.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/prettier.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/actions/plot.actions.ts" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/ReactJSONEditor.react.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/actions/plot.actions.ts" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/models/RootModel.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/models/RootModel.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/pages/Home.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/pages/Home.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -59,7 +49,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/src" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../humanity/web-schedule" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -104,12 +94,17 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2573" y="190" width="603" height="706" key="#TypeScript" timestamp="1601469720508">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2573" y="190" width="603" height="706" key="#TypeScript/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601469720508" />
+    <state x="1492" y="65" width="424" height="498" key="FileChooserDialogImpl" timestamp="1602233798775">
+      <screen x="960" y="0" width="960" height="540" />
+    </state>
+    <state x="1492" y="65" width="424" height="498" key="FileChooserDialogImpl/960.0.960.540/0.27.960.513@960.0.960.540" timestamp="1602233798775" />
     <state width="1897" height="284" key="GridCell.Tab.0.bottom" timestamp="1601470351520">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
@@ -130,6 +125,10 @@
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
     <state x="2369" y="175" width="1022" height="737" key="SettingsEditor/0.27.1920.1053/1920.0.1920.1080@1920.0.1920.1080" timestamp="1601469661035" />
+    <state x="1306" y="6" width="614" height="534" key="find.popup" timestamp="1601997366415">
+      <screen x="960" y="0" width="960" height="540" />
+    </state>
+    <state x="1306" y="6" width="614" height="534" key="find.popup/960.0.960.540/0.27.960.513@960.0.960.540" timestamp="1601997366415" />
     <state x="2543" y="239" width="672" height="678" key="search.everywhere.popup" timestamp="1601471050221">
       <screen x="1920" y="0" width="1920" height="1080" />
     </state>
